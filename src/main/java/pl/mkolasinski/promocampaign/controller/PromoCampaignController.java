@@ -2,14 +2,12 @@ package pl.mkolasinski.promocampaign.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.mkolasinski.promocampaign.model.Campaign;
 import pl.mkolasinski.promocampaign.service.PromoCampaignService;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -30,7 +28,12 @@ public class PromoCampaignController {
     }
 
     @GetMapping("/campaigns")
-    public ResponseEntity getAll() {
-        return ResponseEntity.ok().body(service.getAll());
+    public ResponseEntity<List<Campaign>> getAll() {
+        return ResponseEntity.ok(service.getAll());
+    }
+
+    @GetMapping("/campaigns/current/{brand}")
+    public ResponseEntity<List<Campaign>> getCurrentByBrand(@PathVariable String brand) {
+        return ResponseEntity.ok(service.getCurrentByBrand(brand));
     }
 }
