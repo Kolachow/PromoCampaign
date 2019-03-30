@@ -28,4 +28,8 @@ public class EmployeeController {
         return ResponseEntity.ok(service.save(employee));
     }
 
+    @GetMapping("/employee")
+    public ResponseEntity<List<Employee>> getAll() {
+        return ResponseEntity.ok(service.getEmployeeList());
+    }
 }

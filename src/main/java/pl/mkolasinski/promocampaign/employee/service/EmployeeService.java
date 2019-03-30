@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import pl.mkolasinski.promocampaign.employee.model.Employee;
 import pl.mkolasinski.promocampaign.employee.model.EmployeeRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -25,8 +24,8 @@ public class EmployeeService {
     public Optional<Employee> getEmployeeById(Integer id) {
         return repository.findById(id);
     }
-//
-//    public List<Employee> getEmployeeList() {
-//        return repository.findAll();
-//    }
+
+    public List<Employee> getEmployeeList() {
+        return repository.findAll();
+    }
 }
