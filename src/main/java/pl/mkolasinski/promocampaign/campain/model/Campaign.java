@@ -1,4 +1,4 @@
-package pl.mkolasinski.promocampaign.model;
+package pl.mkolasinski.promocampaign.campain.model;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -22,4 +22,6 @@ public class Campaign {
 
     @NonNull
     private LocalDate endDate;
+
+    private int employeeId;
 }
