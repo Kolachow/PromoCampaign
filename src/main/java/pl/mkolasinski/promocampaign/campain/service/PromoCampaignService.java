@@ -5,10 +5,8 @@ import pl.mkolasinski.promocampaign.campain.model.Campaign;
 import pl.mkolasinski.promocampaign.campain.model.CampaignRepository;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 public class PromoCampaignService {
