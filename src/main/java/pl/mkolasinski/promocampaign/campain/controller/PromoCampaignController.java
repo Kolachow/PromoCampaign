@@ -52,12 +52,12 @@ public class PromoCampaignController {
         return ResponseEntity.ok(service.getCurrentByBrand(brand));
     }
 
-    @GetMapping("/campaigns/future/({brand}")
+    @GetMapping("/campaigns/future/{brand}")
     public ResponseEntity<List<Campaign>> getFutureByBrand(@PathVariable String brand) {
         return ResponseEntity.ok(service.getFutureByBrand(brand));
     }
 
-    @GetMapping("/campaigns/ended/({brand}")
+    @GetMapping("/campaigns/ended/{brand}")
     public ResponseEntity<List<Campaign>> getEndedByBrand(@PathVariable String brand) {
         return ResponseEntity.ok(service.getEndedByBrand(brand));
     }

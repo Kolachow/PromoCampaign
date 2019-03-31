@@ -2,44 +2,40 @@ package pl.mkolasinski.promocampaign.campain.service;
 
 import org.springframework.stereotype.Service;
 import pl.mkolasinski.promocampaign.campain.model.Campaign;
+import pl.mkolasinski.promocampaign.campain.model.CampaignRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
 public class PromoCampaignService {
 
-    private List<Campaign> campaigns = new ArrayList<>();
+    private CampaignRepository repository;
+
+    public PromoCampaignService(CampaignRepository repository) {
+        this.repository = Objects.requireNonNull(repository, "Campaign Service must be defined!");
+    }
 
     public void save(Campaign campaign) {
-        campaigns.add(campaign);
+        repository.save(campaign);
     }
 
     public List<Campaign> getAll() {
-        return campaigns;
+        return repository.findAll();
     }
 
     public List<Campaign> getCurrentByBrand(String brand) {
-        return campaigns.stream()
-                .filter(campaign -> campaign.getBrand().equals(brand))
-                .filter(campaign -> campaign.getStartDate().isBefore(LocalDate.now()))
-                .filter(campaign -> campaign.getEndDate().isAfter(LocalDate.now()))
-                .collect(Collectors.toList());
+        return repository.findCampaignsByBrandAndStartDateBeforeAndEndDateAfter(brand, LocalDate.now(), LocalDate.now());
     }
 
     public List<Campaign> getFutureByBrand(String brand) {
-        return campaigns.stream()
-                .filter(campaign -> campaign.getBrand().equals(brand))
-                .filter(campaign -> campaign.getStartDate().isAfter(LocalDate.now()))
-                .collect(Collectors.toList());
+        return repository.findCampaignsByBrandAndStartDateAfter(brand, LocalDate.now());
     }
 
     public List<Campaign> getEndedByBrand(String brand) {
-        return campaigns.stream()
-                .filter(campaign -> campaign.getBrand().equals(brand))
-                .filter(campaign -> campaign.getEndDate().isBefore(LocalDate.now()))
-                .collect(Collectors.toList());
+        return repository.findCampaignsByBrandAndEndDateBefore(brand, LocalDate.now());
     }
 }
