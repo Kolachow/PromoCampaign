@@ -1,4 +1,4 @@
-package pl.mkolasinski.promocampaign.campain.model;
+package pl.mkolasinski.promocampaign.campaign.model;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;

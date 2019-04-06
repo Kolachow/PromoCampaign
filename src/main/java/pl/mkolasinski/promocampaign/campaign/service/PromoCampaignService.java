@@ -1,8 +1,8 @@
-package pl.mkolasinski.promocampaign.campain.service;
+package pl.mkolasinski.promocampaign.campaign.service;
 
 import org.springframework.stereotype.Service;
-import pl.mkolasinski.promocampaign.campain.model.Campaign;
-import pl.mkolasinski.promocampaign.campain.model.CampaignRepository;
+import pl.mkolasinski.promocampaign.campaign.model.Campaign;
+import pl.mkolasinski.promocampaign.campaign.model.CampaignRepository;
 
 import java.time.LocalDate;
 import java.util.List;

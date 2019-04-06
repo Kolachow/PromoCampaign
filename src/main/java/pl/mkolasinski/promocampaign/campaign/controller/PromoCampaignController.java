@@ -1,10 +1,10 @@
-package pl.mkolasinski.promocampaign.campain.controller;
+package pl.mkolasinski.promocampaign.campaign.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.mkolasinski.promocampaign.campain.model.Campaign;
-import pl.mkolasinski.promocampaign.campain.service.PromoCampaignService;
+import pl.mkolasinski.promocampaign.campaign.model.Campaign;
+import pl.mkolasinski.promocampaign.campaign.service.PromoCampaignService;
 import pl.mkolasinski.promocampaign.employee.model.Employee;
 import pl.mkolasinski.promocampaign.employee.service.EmployeeService;
 

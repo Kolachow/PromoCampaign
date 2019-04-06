@@ -1,4 +1,4 @@
-package pl.mkolasinski.promocampaign.campain.model;
+package pl.mkolasinski.promocampaign.campaign.model;
 
 import org.springframework.data.repository.CrudRepository;
 
