@@ -1,5 +1,6 @@
 package pl.mkolasinski.promocampaign;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,25 +23,33 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest(EmployeeController.class)
 public class EmployeeControllerTestMVC {
-
+                                                                //TE TESTY SA LEPSZE ! ! ! ! ! !
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
     private EmployeeService service;
 
-    @Test
-    public void test_get_all_employees() throws Exception {
-        List<Employee> employeeList = new ArrayList<>();
+    private List<Employee> employeeList = new ArrayList<>();
+
+    @Before
+    public void create_employee_list() {
         Employee employee = new Employee();
         employee.setFirstName("John");
         employee.setLastName("Snow");
         employee.setCompany("Bosman");
         employee.setId(5);
         employeeList.add(employee);
+    }
 
+    @Test
+    public void test_get_all_employees() throws Exception {
+        //given
+
+        //when
         when(service.getEmployeeList()).thenReturn(employeeList);
 
+        //then
         mockMvc.perform(get("/employee"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json("[{\"firstName\":\"John\"," +

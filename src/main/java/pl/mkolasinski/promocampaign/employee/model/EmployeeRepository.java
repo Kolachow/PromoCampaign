@@ -9,4 +9,8 @@ import java.util.List;
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 
     List<Employee> findAll();
+
+    boolean existsByEmail(String email);
+
+    Employee findByEmail(String email);
 }

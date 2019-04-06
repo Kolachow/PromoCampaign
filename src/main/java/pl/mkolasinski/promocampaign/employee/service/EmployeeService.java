@@ -28,4 +28,12 @@ public class EmployeeService {
     public List<Employee> getEmployeeList() {
         return repository.findAll();
     }
+
+    public boolean existByEmail(String email) {
+        return repository.existsByEmail(email);
+    }
+
+    public Employee getCustomerByEmail(String email) {
+        return repository.findByEmail(email);
+    }
 }
