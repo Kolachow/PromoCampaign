@@ -25,6 +25,10 @@ public class PromoCampaignService {
         return repository.findAll();
     }
 
+    public List<Campaign> getAllByBrand(String brand) {
+        return repository.findCampaignsByBrand(brand);
+    }
+
     public List<Campaign> getCurrentByBrand(String brand) {
         return repository.findCampaignsByBrandAndStartDateBeforeAndEndDateAfter(brand, LocalDate.now(), LocalDate.now());
     }

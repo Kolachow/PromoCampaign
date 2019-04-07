@@ -10,4 +10,5 @@ public interface CampaignRepository extends CrudRepository<Campaign, Integer> {
     List<Campaign> findCampaignsByBrandAndStartDateBeforeAndEndDateAfter(String brand, LocalDate beforeDate, LocalDate afterDate);
     List<Campaign> findCampaignsByBrandAndStartDateAfter(String brand, LocalDate futureDate);
     List<Campaign> findCampaignsByBrandAndEndDateBefore(String brand, LocalDate beforeDate);
+    List<Campaign> findCampaignsByBrand(String brand);
 }

@@ -47,6 +47,11 @@ public class PromoCampaignController {
         return ResponseEntity.ok(service.getAll());
     }
 
+    @GetMapping("/campaigns/all/{brand}")
+    public ResponseEntity<List<Campaign>> getAllByBrand(@PathVariable String brand) {
+        return ResponseEntity.ok(service.getAllByBrand(brand));
+    }
+
     @GetMapping("/campaigns/current/{brand}")
     public ResponseEntity<List<Campaign>> getCurrentByBrand(@PathVariable String brand) {
         return ResponseEntity.ok(service.getCurrentByBrand(brand));
